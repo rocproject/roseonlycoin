@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+<dict>
+	<key>CFBundleIconFile</key>
+<<<<<<< HEAD
+	<string>roseonlycoin.icns</string>
+=======
+	<string>hirocoin.icns</string>
+>>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleGetInfoString</key>
+	<string>$VERSION, Copyright © 2009-$YEAR The Bitcoin developers</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$VERSION</string>
+	<key>CFBundleVersion</key>
+	<string>$VERSION</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleExecutable</key>
+<<<<<<< HEAD
+	<string>RoseOnlycoin-Qt</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.roseonlycoin.RoseOnlycoin-Qt</string>
+=======
+	<string>Hirocoin-Qt</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.hirocoin.Hirocoin-Qt</string>
+>>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+        <key>CFBundleURLTypes</key>
+        <array>
+          <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLName</key>
+<<<<<<< HEAD
+            <string>org.roseonlycoin.RoseOnlycoinPayment</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+              <string>roseonlycoin</string>
+=======
+            <string>org.hirocoin.HirocoinPayment</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+              <string>hirocoin</string>
+>>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            </array>
+          </dict>
+        </array>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+</dict>
+</plist>

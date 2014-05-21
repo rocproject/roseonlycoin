@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+Building RoseOnlycoin
+
+See doc/readme-qt.rst for instructions on building RoseOnlycoin-Qt,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of RoseOnlycoin.
+
+See doc/build-*.txt for instructions on building roseonlycoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of RoseOnlycoin.
+=======
+Building Hirocoin
+
+See doc/readme-qt.rst for instructions on building Hirocoin-Qt,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of Hirocoin.
+
+See doc/build-*.txt for instructions on building hirocoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of Hirocoin.
+>>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
