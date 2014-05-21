@@ -179,21 +179,12 @@ bool AppInit(int argc, char* argv[])
         if (mapArgs.count("-?") || mapArgs.count("--help"))
         {
             // First part of help message is specific to bitcoind / RPC client
-<<<<<<< HEAD
-            std::string strUsage = _("RoseOnlycoin version") + " " + FormatFullVersion() + "\n\n" +
+            std::string strUsage = _("RoseonlyCoin version") + " " + FormatFullVersion() + "\n\n" +
                 _("Usage:") + "\n" +
-                  "  roseonlycoind [options]                     " + "\n" +
-                  "  roseonlycoind [options] <command> [params]  " + _("Send command to -server or roseonlycoind") + "\n" +
-                  "  roseonlycoind [options] help                " + _("List commands") + "\n" +
-                  "  roseonlycoind [options] help <command>      " + _("Get help for a command") + "\n";
-=======
-            std::string strUsage = _("Hirocoin version") + " " + FormatFullVersion() + "\n\n" +
-                _("Usage:") + "\n" +
-                  "  hirocoind [options]                     " + "\n" +
-                  "  hirocoind [options] <command> [params]  " + _("Send command to -server or hirocoind") + "\n" +
-                  "  hirocoind [options] help                " + _("List commands") + "\n" +
-                  "  hirocoind [options] help <command>      " + _("Get help for a command") + "\n";
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+                  "  RoseonlyCoind [options]                     " + "\n" +
+                  "  RoseonlyCoind [options] <command> [params]  " + _("Send command to -server or RoseonlyCoind") + "\n" +
+                  "  RoseonlyCoind [options] help                " + _("List commands") + "\n" +
+                  "  RoseonlyCoind [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessage();
 
@@ -203,11 +194,7 @@ bool AppInit(int argc, char* argv[])
 
         // Command-line RPC
         for (int i = 1; i < argc; i++)
-<<<<<<< HEAD
-            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "roseonlycoin:"))
-=======
-            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "hirocoin:"))
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "RoseonlyCoin:"))
                 fCommandLine = true;
 
         if (fCommandLine)
@@ -310,13 +297,8 @@ std::string HelpMessage()
 {
     string strUsage = _("Options:") + "\n" +
         "  -?                     " + _("This help message") + "\n" +
-<<<<<<< HEAD
-        "  -conf=<file>           " + _("Specify configuration file (default: roseonlycoin.conf)") + "\n" +
-        "  -pid=<file>            " + _("Specify pid file (default: roseonlycoind.pid)") + "\n" +
-=======
-        "  -conf=<file>           " + _("Specify configuration file (default: hirocoin.conf)") + "\n" +
-        "  -pid=<file>            " + _("Specify pid file (default: hirocoind.pid)") + "\n" +
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+        "  -conf=<file>           " + _("Specify configuration file (default: RoseonlyCoin.conf)") + "\n" +
+        "  -pid=<file>            " + _("Specify pid file (default: RoseonlyCoind.pid)") + "\n" +
         "  -datadir=<dir>         " + _("Specify data directory") + "\n" +
         "  -dbcache=<n>           " + _("Set database cache size in megabytes (default: 25)") + "\n" +
         "  -timeout=<n>           " + _("Specify connection timeout in milliseconds (default: 5000)") + "\n" +
@@ -324,7 +306,7 @@ std::string HelpMessage()
         "  -socks=<n>             " + _("Select the version of socks proxy to use (4-5, default: 5)") + "\n" +
         "  -tor=<ip:port>         " + _("Use proxy to reach tor hidden services (default: same as -proxy)") + "\n"
         "  -dns                   " + _("Allow DNS lookups for -addnode, -seednode and -connect") + "\n" +
-        "  -port=<port>           " + _("Listen for connections on <port> (default: 9348 or testnet: 19348)") + "\n" +
+        "  -port=<port>           " + _("Listen for connections on <port> (default: 9126 or testnet: 19348)") + "\n" +
         "  -maxconnections=<n>    " + _("Maintain at most <n> connections to peers (default: 125)") + "\n" +
         "  -addnode=<ip>          " + _("Add a node to connect to and attempt to keep the connection open") + "\n" +
         "  -connect=<ip>          " + _("Connect only to the specified node(s)") + "\n" +
@@ -367,7 +349,7 @@ std::string HelpMessage()
 #endif
         "  -rpcuser=<user>        " + _("Username for JSON-RPC connections") + "\n" +
         "  -rpcpassword=<pw>      " + _("Password for JSON-RPC connections") + "\n" +
-        "  -rpcport=<port>        " + _("Listen for JSON-RPC connections on <port> (default: 9347 or testnet: 19347)") + "\n" +
+        "  -rpcport=<port>        " + _("Listen for JSON-RPC connections on <port> (default: 9125 or testnet: 19347)") + "\n" +
         "  -rpcallowip=<ip>       " + _("Allow JSON-RPC connections from specified IP address") + "\n" +
 #ifndef QT_GUI
         "  -rpcconnect=<ip>       " + _("Send commands to node running on <ip> (default: 127.0.0.1)") + "\n" +
@@ -392,11 +374,7 @@ std::string HelpMessage()
         "  -blockmaxsize=<n>      "   + _("Set maximum block size in bytes (default: 250000)") + "\n" +
         "  -blockprioritysize=<n> "   + _("Set maximum size of high-priority/low-fee transactions in bytes (default: 27000)") + "\n" +
 
-<<<<<<< HEAD
-        "\n" + _("SSL options: (see the RoseOnlycoin Wiki for SSL setup instructions)") + "\n" +
-=======
-        "\n" + _("SSL options: (see the Hirocoin Wiki for SSL setup instructions)") + "\n" +
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+        "\n" + _("SSL options: (see the RoseonlyCoin Wiki for SSL setup instructions)") + "\n" +
         "  -rpcssl                                  " + _("Use OpenSSL (https) for JSON-RPC connections") + "\n" +
         "  -rpcsslcertificatechainfile=<file.cert>  " + _("Server certificate file (default: server.cert)") + "\n" +
         "  -rpcsslprivatekeyfile=<file.pem>         " + _("Server private key (default: server.pem)") + "\n" +
@@ -671,20 +649,12 @@ bool AppInit2(boost::thread_group& threadGroup)
     if (file) fclose(file);
     static boost::interprocess::file_lock lock(pathLockFile.string().c_str());
     if (!lock.try_lock())
-<<<<<<< HEAD
-        return InitError(strprintf(_("Cannot obtain a lock on data directory %s. RoseOnlycoin is probably already running."), strDataDir.c_str()));
-=======
-        return InitError(strprintf(_("Cannot obtain a lock on data directory %s. Hirocoin is probably already running."), strDataDir.c_str()));
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+        return InitError(strprintf(_("Cannot obtain a lock on data directory %s. RoseonlyCoin is probably already running."), strDataDir.c_str()));
 
     if (GetBoolArg("-shrinkdebugfile", !fDebug))
         ShrinkDebugFile();
     printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-<<<<<<< HEAD
-    printf("RoseOnlycoin version %s (%s)\n", FormatFullVersion().c_str(), CLIENT_DATE.c_str());
-=======
-    printf("Hirocoin version %s (%s)\n", FormatFullVersion().c_str(), CLIENT_DATE.c_str());
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+    printf("RoseonlyCoin version %s (%s)\n", FormatFullVersion().c_str(), CLIENT_DATE.c_str());
     printf("Using OpenSSL version %s\n", SSLeay_version(SSLEAY_VERSION));
     if (!fLogTimestamps)
         printf("Startup time: %s\n", DateTimeStrFormat("%Y-%m-%d %H:%M:%S", GetTime()).c_str());
@@ -694,11 +664,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     std::ostringstream strErrors;
 
     if (fDaemon)
-<<<<<<< HEAD
-        fprintf(stdout, "RoseOnlycoin server starting\n");
-=======
-        fprintf(stdout, "Hirocoin server starting\n");
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+        fprintf(stdout, "RoseonlyCoin server starting\n");
 
     if (nScriptCheckThreads) {
         printf("Using %u threads for script verification\n", nScriptCheckThreads);
@@ -1039,17 +1005,10 @@ bool AppInit2(boost::thread_group& threadGroup)
                 InitWarning(msg);
             }
             else if (nLoadWalletRet == DB_TOO_NEW)
-<<<<<<< HEAD
-                strErrors << _("Error loading wallet.dat: Wallet requires newer version of RoseOnlycoin") << "\n";
+                strErrors << _("Error loading wallet.dat: Wallet requires newer version of RoseonlyCoin") << "\n";
             else if (nLoadWalletRet == DB_NEED_REWRITE)
             {
-                strErrors << _("Wallet needed to be rewritten: restart RoseOnlycoin to complete") << "\n";
-=======
-                strErrors << _("Error loading wallet.dat: Wallet requires newer version of Hirocoin") << "\n";
-            else if (nLoadWalletRet == DB_NEED_REWRITE)
-            {
-                strErrors << _("Wallet needed to be rewritten: restart Hirocoin to complete") << "\n";
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+                strErrors << _("Wallet needed to be rewritten: restart RoseonlyCoin to complete") << "\n";
                 printf("%s", strErrors.str().c_str());
                 return InitError(strErrors.str());
             }

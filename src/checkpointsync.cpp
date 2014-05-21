@@ -62,7 +62,8 @@
 //
 
 #include <boost/foreach.hpp>
-
+#include "bignum.h"
+#include "sync.h"
 #include "checkpoints.h"
 #include "checkpointsync.h"
 

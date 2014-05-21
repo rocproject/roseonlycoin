@@ -39,7 +39,7 @@ static boost::thread_group* rpc_worker_group = NULL;
 
 static inline unsigned short GetDefaultRPCPort()
 {
-    return GetBoolArg("-testnet", false) ? 19347 : 9347;
+    return GetBoolArg("-testnet", false) ? 19347 : 9125;
 }
 
 Object JSONRPCError(int code, const string& message)
@@ -182,17 +182,10 @@ Value stop(const Array& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-<<<<<<< HEAD
-            "Stop RoseOnlycoin server.");
+            "Stop RoseonlyCoin server.");
     // Shutdown will take long enough that the response should get back
     StartShutdown();
-    return "RoseOnlycoin server stopping";
-=======
-            "Stop Hirocoin server.");
-    // Shutdown will take long enough that the response should get back
-    StartShutdown();
-    return "Hirocoin server stopping";
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+    return "RoseonlyCoin server stopping";
 }
 
 
@@ -307,11 +300,7 @@ string HTTPPost(const string& strMsg, const map<string,string>& mapRequestHeader
 {
     ostringstream s;
     s << "POST / HTTP/1.1\r\n"
-<<<<<<< HEAD
-      << "User-Agent: roseonlycoin-json-rpc/" << FormatFullVersion() << "\r\n"
-=======
-      << "User-Agent: hirocoin-json-rpc/" << FormatFullVersion() << "\r\n"
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+      << "User-Agent: RoseonlyCoin-json-rpc/" << FormatFullVersion() << "\r\n"
       << "Host: 127.0.0.1\r\n"
       << "Content-Type: application/json\r\n"
       << "Content-Length: " << strMsg.size() << "\r\n"
@@ -342,11 +331,7 @@ static string HTTPReply(int nStatus, const string& strMsg, bool keepalive)
     if (nStatus == HTTP_UNAUTHORIZED)
         return strprintf("HTTP/1.0 401 Authorization Required\r\n"
             "Date: %s\r\n"
-<<<<<<< HEAD
-            "Server: roseonlycoin-json-rpc/%s\r\n"
-=======
-            "Server: hirocoin-json-rpc/%s\r\n"
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            "Server: RoseonlyCoin-json-rpc/%s\r\n"
             "WWW-Authenticate: Basic realm=\"jsonrpc\"\r\n"
             "Content-Type: text/html\r\n"
             "Content-Length: 296\r\n"
@@ -373,11 +358,7 @@ static string HTTPReply(int nStatus, const string& strMsg, bool keepalive)
             "Connection: %s\r\n"
             "Content-Length: %"PRIszu"\r\n"
             "Content-Type: application/json\r\n"
-<<<<<<< HEAD
-            "Server: roseonlycoin-json-rpc/%s\r\n"
-=======
-            "Server: hirocoin-json-rpc/%s\r\n"
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            "Server: RoseonlyCoin-json-rpc/%s\r\n"
             "\r\n"
             "%s",
         nStatus,
@@ -757,11 +738,7 @@ void StartRPCThreads()
     {
         unsigned char rand_pwd[32];
         RAND_bytes(rand_pwd, 32);
-<<<<<<< HEAD
-        string strWhatAmI = "To use roseonlycoind";
-=======
-        string strWhatAmI = "To use hirocoind";
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+        string strWhatAmI = "To use RoseonlyCoind";
         if (mapArgs.count("-server"))
             strWhatAmI = strprintf(_("To use the %s option"), "\"-server\"");
         else if (mapArgs.count("-daemon"))
@@ -770,21 +747,13 @@ void StartRPCThreads()
             _("%s, you must set a rpcpassword in the configuration file:\n"
               "%s\n"
               "It is recommended you use the following random password:\n"
-<<<<<<< HEAD
-              "rpcuser=roseonlycoinrpc\n"
-=======
-              "rpcuser=hirocoinrpc\n"
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+              "rpcuser=RoseonlyCoinrpc\n"
               "rpcpassword=%s\n"
               "(you do not need to remember this password)\n"
               "The username and password MUST NOT be the same.\n"
               "If the file does not exist, create it with owner-readable-only file permissions.\n"
               "It is also recommended to set alertnotify so you are notified of problems;\n"
-<<<<<<< HEAD
-              "for example: alertnotify=echo %%s | mail -s \"RoseOnlycoin Alert\" admin@foo.com\n"),
-=======
-              "for example: alertnotify=echo %%s | mail -s \"Hirocoin Alert\" admin@foo.com\n"),
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+              "for example: alertnotify=echo %%s | mail -s \"RoseonlyCoin Alert\" admin@foo.com\n"),
                 strWhatAmI.c_str(),
                 GetConfigFile().string().c_str(),
                 EncodeBase58(&rand_pwd[0],&rand_pwd[0]+32).c_str()),

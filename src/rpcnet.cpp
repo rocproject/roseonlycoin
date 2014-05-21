@@ -3,7 +3,8 @@
 // Copyright (c) 2013 Primecoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
+#include "bignum.h"
+#include "sync.h"
 #include "net.h"
 #include "bitcoinrpc.h"
 #include "alert.h"

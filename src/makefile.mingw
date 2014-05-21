@@ -17,19 +17,26 @@
 
 CXX ?= g++
 
-USE_UPNP:=-
+USE_UPNP:=1
 USE_IPV6:=1
 
 DEPSDIR?=/usr/local
-BOOST_SUFFIX?=-mgw46-mt-sd-1_52
+BOOST_SUFFIX?=-mgw48-mt-sd-1_50
 
 INCLUDEPATHS= \
  -I"$(CURDIR)" \
- -I"$(DEPSDIR)/include"
+ -I"$(DEPSDIR)/include" \
+ -I"/d/boost-1.50.0-mgw/boost/" \
+ -I"/d/db-4.8.30.NC-mgw-1/include/" \
+ -I"/d/openssl-1.0.1g-mgw/include/openssl" \
+ -I"/d/miniupnpc-1.6-mgw/miniupnpc"
 
 LIBPATHS= \
  -L"$(CURDIR)/leveldb" \
- -L"$(DEPSDIR)/lib"
+ -L"/d/boost-1.50.0-mgw/stage/lib/" \
+ -L"/d/db-4.8.30.NC-mgw-1/lib/" \
+ -L"/usr/local/ssl/lib" \
+ -L"/usr/local/lib"
 
 LIBS= \
  -l leveldb \
@@ -43,7 +50,7 @@ LIBS= \
  -l ssl \
  -l crypto
 
-DEFS=-D_MT -DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -DBOOST_SPIRIT_THREADSAFE
+DEFS=-DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -DBOOST_SPIRIT_THREADSAFE -D__NO_SYSTEM_INCLUDES
 DEBUGFLAGS=-g
 CFLAGS=-mthreads -O2 -w -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter $(DEBUGFLAGS) $(DEFS) $(INCLUDEPATHS)
 # enable: ASLR, DEP and large address aware
@@ -112,11 +119,7 @@ OBJS= \
     obj/simd.o \
 	obj/checkpointsync.o
 
-<<<<<<< HEAD
-all: roseonlycoind.exe
-=======
-all: hirocoind.exe
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+all: RoseonlyCoind.exe
 
 #
 # LevelDB support
@@ -133,19 +136,11 @@ obj/%.o: %.cpp $(HEADERS)
 obj/%.o: %.c $(HEADERS)
 	$(CXX) -c $(CFLAGS) -fpermissive -o $@ $<
 	
-<<<<<<< HEAD
-roseonlycoind.exe: $(OBJS:obj/%=obj/%)
+RoseonlyCoind.exe: $(OBJS:obj/%=obj/%)
 	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS)
 
 clean:
-	rm -f roseonlycoind.exe
-=======
-hirocoind.exe: $(OBJS:obj/%=obj/%)
-	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS)
-
-clean:
-	rm -f hirocoind.exe
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+	rm -f RoseonlyCoind.exe
 	rm -f obj/*
 	cd leveldb && $(MAKE) TARGET_OS=NATIVE_WINDOWS clean && cd ..
 

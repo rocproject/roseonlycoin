@@ -148,11 +148,7 @@ OBJS= \
     obj/skein.o \
 	obj/checkpointsync.o
 
-<<<<<<< HEAD
-all: roseonlycoind
-=======
-all: hirocoind
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+all: RoseonlyCoind
 
 #
 # LevelDB support
@@ -186,19 +182,11 @@ obj/%.o: %.cpp
 	      -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
 	  rm -f $(@:%.o=%.d)
 
-<<<<<<< HEAD
-roseonlycoind: $(OBJS:obj/%=obj/%)
+RoseonlyCoind: $(OBJS:obj/%=obj/%)
 	$(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)
 
 clean:
-	-rm -f roseonlycoind
-=======
-hirocoind: $(OBJS:obj/%=obj/%)
-	$(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)
-
-clean:
-	-rm -f hirocoind
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+	-rm -f RoseonlyCoind
 	-rm -f obj/*.o
 	-rm -f obj/*.P
 	-rm -f obj/build.h

@@ -995,11 +995,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-<<<<<<< HEAD
-    const char* pszModule = "roseonlycoin";
-=======
-    const char* pszModule = "hirocoin";
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+    const char* pszModule = "RoseonlyCoin";
 #endif
     if (pex)
         return strprintf(
@@ -1041,11 +1037,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Unix: ~/.bitcoin
 #ifdef WIN32
     // Windows
-<<<<<<< HEAD
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "RoseOnlycoin";
-=======
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Hirocoin";
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "RoseonlyCoin";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -1057,17 +1049,10 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     fs::create_directory(pathRet);
-<<<<<<< HEAD
-    return pathRet / "RoseOnlycoin";
+    return pathRet / "RoseonlyCoin";
 #else
     // Unix
-    return pathRet / ".roseonlycoin";
-=======
-    return pathRet / "Hirocoin";
-#else
-    // Unix
-    return pathRet / ".hirocoin";
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+    return pathRet / ".RoseonlyCoin";
 #endif
 #endif
 }
@@ -1108,11 +1093,7 @@ const boost::filesystem::path &GetDataDir(bool fNetSpecific)
 
 boost::filesystem::path GetConfigFile()
 {
-<<<<<<< HEAD
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "roseonlycoin.conf"));
-=======
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "hirocoin.conf"));
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "RoseonlyCoin.conf"));
     if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir(false) / pathConfigFile;
     return pathConfigFile;
 }
@@ -1146,11 +1127,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
 boost::filesystem::path GetPidFile()
 {
-<<<<<<< HEAD
-    boost::filesystem::path pathPidFile(GetArg("-pid", "roseonlycoind.pid"));
-=======
-    boost::filesystem::path pathPidFile(GetArg("-pid", "hirocoind.pid"));
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+    boost::filesystem::path pathPidFile(GetArg("-pid", "RoseonlyCoind.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }
@@ -1359,11 +1336,7 @@ void AddTimeData(const CNetAddr& ip, int64 nTime)
         int64 nMedian = vTimeOffsets.median();
         std::vector<int64> vSorted = vTimeOffsets.sorted();
         // Only let other nodes change our time by so much
-<<<<<<< HEAD
-        if (abs64(nMedian) < 14 * 60) // RoseOnlycoin: changed maximum adjust to 14 mins to avoid letting peers change our time too much in case of an attack.
-=======
-        if (abs64(nMedian) < 14 * 60) // Hirocoin: changed maximum adjust to 14 mins to avoid letting peers change our time too much in case of an attack.
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+        if (abs64(nMedian) < 14 * 60) // RoseonlyCoin: changed maximum adjust to 14 mins to avoid letting peers change our time too much in case of an attack.
         {
             nTimeOffset = nMedian;
         }
@@ -1383,11 +1356,7 @@ void AddTimeData(const CNetAddr& ip, int64 nTime)
                 if (!fMatch)
                 {
                     fDone = true;
-<<<<<<< HEAD
-                    string strMessage = _("Warning: Please check that your computer's date and time are correct! If your clock is wrong RoseOnlycoin will not work properly.");
-=======
-                    string strMessage = _("Warning: Please check that your computer's date and time are correct! If your clock is wrong Hirocoin will not work properly.");
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+                    string strMessage = _("Warning: Please check that your computer's date and time are correct! If your clock is wrong RoseonlyCoin will not work properly.");
                     strMiscWarning = strMessage;
                     printf("*** %s\n", strMessage.c_str());
                     uiInterface.ThreadSafeMessageBox(strMessage, "", CClientUIInterface::MSG_WARNING);

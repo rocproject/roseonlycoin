@@ -116,17 +116,10 @@ Value getworkex(const Array& params, bool fHelp)
         );
 
     if (vNodes.empty())
-<<<<<<< HEAD
-        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "RoseOnlycoin is not connected!");
+        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "RoseonlyCoin is not connected!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "RoseOnlycoin is downloading blocks...");
-=======
-        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Hirocoin is not connected!");
-
-    if (IsInitialBlockDownload())
-        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Hirocoin is downloading blocks...");
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "RoseonlyCoin is downloading blocks...");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
     static mapNewBlock_t mapNewBlock;    // FIXME: thread safety
@@ -263,17 +256,10 @@ Value getwork(const Array& params, bool fHelp)
             "If [data] is specified, tries to solve the block and returns true if it was successful.");
 
     if (vNodes.empty())
-<<<<<<< HEAD
-        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "RoseOnlycoin is not connected!");
+        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "RoseonlyCoin is not connected!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "RoseOnlycoin is downloading blocks...");
-=======
-        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Hirocoin is not connected!");
-
-    if (IsInitialBlockDownload())
-        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Hirocoin is downloading blocks...");
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "RoseonlyCoin is downloading blocks...");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
     static mapNewBlock_t mapNewBlock;    // FIXME: thread safety
@@ -412,17 +398,10 @@ Value getblocktemplate(const Array& params, bool fHelp)
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid mode");
 
     if (vNodes.empty())
-<<<<<<< HEAD
-        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "RoseOnlycoin is not connected!");
+        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "RoseonlyCoin is not connected!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "RoseOnlycoin is downloading blocks...");
-=======
-        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Hirocoin is not connected!");
-
-    if (IsInitialBlockDownload())
-        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Hirocoin is downloading blocks...");
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "RoseonlyCoin is downloading blocks...");
 
     // Update block
     static unsigned int nTransactionsUpdatedLast;

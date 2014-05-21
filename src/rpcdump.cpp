@@ -36,11 +36,7 @@ Value importprivkey(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 3)
         throw runtime_error(
-<<<<<<< HEAD
-            "importprivkey <roseonlycoinprivkey> [label] [rescan=true]\n"
-=======
-            "importprivkey <hirocoinprivkey> [label] [rescan=true]\n"
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            "importprivkey <RoseonlyCoinprivkey> [label] [rescan=true]\n"
             "Adds a private key (as returned by dumpprivkey) to your wallet.");
 
     string strSecret = params[0].get_str();
@@ -83,22 +79,13 @@ Value dumpprivkey(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-<<<<<<< HEAD
-            "dumpprivkey <roseonlycoinaddress>\n"
-            "Reveals the private key corresponding to <roseonlycoinaddress>.");
-=======
-            "dumpprivkey <hirocoinaddress>\n"
-            "Reveals the private key corresponding to <hirocoinaddress>.");
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            "dumpprivkey <RoseonlyCoinaddress>\n"
+            "Reveals the private key corresponding to <RoseonlyCoinaddress>.");
 
     string strAddress = params[0].get_str();
     CBitcoinAddress address;
     if (!address.SetString(strAddress))
-<<<<<<< HEAD
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid RoseOnlycoin address");
-=======
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Hirocoin address");
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid RoseonlyCoin address");
     CKeyID keyID;
     if (!address.GetKeyID(keyID))
         throw JSONRPCError(RPC_TYPE_ERROR, "Address does not refer to a key");

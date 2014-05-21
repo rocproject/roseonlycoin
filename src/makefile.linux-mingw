@@ -100,11 +100,7 @@ OBJS= \
     obj/simd.o \
 	obj/checkpointsync.o
 
-<<<<<<< HEAD
-all: roseonlycoind.exe
-=======
-all: hirocoind.exe
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+all: RoseonlyCoind.exe
 
 DEFS += -I"$(CURDIR)/leveldb/include"
 DEFS += -I"$(CURDIR)/leveldb/helpers"
@@ -122,20 +118,12 @@ obj/%.o: %.cpp $(HEADERS)
 obj/%.o: %.c $(HEADERS)
 	$(CXX) -c $(xCXXFLAGS) -fpermissive -o $@ $<
 	
-<<<<<<< HEAD
-roseonlycoind.exe: $(OBJS:obj/%=obj/%)
-=======
-hirocoind.exe: $(OBJS:obj/%=obj/%)
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+RoseonlyCoind.exe: $(OBJS:obj/%=obj/%)
 	$(CXX) $(xCXXFLAGS) $(xLDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS)
 
 clean:
 	-rm -f obj/*.o
-<<<<<<< HEAD
-	-rm -f roseonlycoind.exe
-=======
-	-rm -f hirocoind.exe
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+	-rm -f RoseonlyCoind.exe
 	-rm -f obj/build.h
 	cd leveldb && TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) clean && cd ..
 

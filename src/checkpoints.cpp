@@ -4,7 +4,8 @@
 
 #include <boost/assign/list_of.hpp> // for 'map_list_of()'
 #include <boost/foreach.hpp>
-
+#include "bignum.h"
+#include "sync.h"
 #include "checkpoints.h"
 
 #include "main.h"
@@ -35,11 +36,11 @@ namespace Checkpoints
     // + Contains no strange transactions
     static MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
-        (  0, uint256("0x0000079dbd0ea897d280a549dc6defcab1128982d75468927cdfe86e6b85883b"))
+        (  0, uint256("0x00000e66457aaf0c385d50f8943412c8fb4db4056b3afeb9cd6922d3905de708"))
         ;
     static const CCheckpointData data = {
         &mapCheckpoints,
-        1394545186, // * UNIX timestamp of last checkpoint block
+        1400051023, // * UNIX timestamp of last checkpoint block
         0,    // * total number of transactions between genesis and last checkpoint
                     //   (the tx=... number in the SetBestChain debug.log lines)
         1000.0     // * estimated number of transactions per day after checkpoint

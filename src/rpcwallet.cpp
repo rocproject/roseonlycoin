@@ -101,11 +101,7 @@ Value getnewaddress(const Array& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "getnewaddress [account]\n"
-<<<<<<< HEAD
-            "Returns a new RoseOnlycoin address for receiving payments.  "
-=======
-            "Returns a new Hirocoin address for receiving payments.  "
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            "Returns a new RoseonlyCoin address for receiving payments.  "
             "If [account] is specified (recommended), it is added to the address book "
             "so payments received with the address will be credited to [account].");
 
@@ -172,11 +168,7 @@ Value getaccountaddress(const Array& params, bool fHelp)
     if (fHelp || params.size() != 1)
         throw runtime_error(
             "getaccountaddress <account>\n"
-<<<<<<< HEAD
-            "Returns the current RoseOnlycoin address for receiving payments to this account.");
-=======
-            "Returns the current Hirocoin address for receiving payments to this account.");
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            "Returns the current RoseonlyCoin address for receiving payments to this account.");
 
     // Parse the account first so we don't generate a key if there's an error
     string strAccount = AccountFromValue(params[0]);
@@ -194,20 +186,12 @@ Value setaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-<<<<<<< HEAD
-            "setaccount <roseonlycoinaddress> <account>\n"
-=======
-            "setaccount <hirocoinaddress> <account>\n"
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            "setaccount <RoseonlyCoinaddress> <account>\n"
             "Sets the account associated with the given address.");
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-<<<<<<< HEAD
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid RoseOnlycoin address");
-=======
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Hirocoin address");
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid RoseonlyCoin address");
 
 
     string strAccount;
@@ -232,20 +216,12 @@ Value getaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-<<<<<<< HEAD
-            "getaccount <roseonlycoinaddress>\n"
-=======
-            "getaccount <hirocoinaddress>\n"
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            "getaccount <RoseonlyCoinaddress>\n"
             "Returns the account associated with the given address.");
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-<<<<<<< HEAD
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid RoseOnlycoin address");
-=======
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Hirocoin address");
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid RoseonlyCoin address");
 
     string strAccount;
     map<CTxDestination, string>::iterator mi = pwalletMain->mapAddressBook.find(address.Get());
@@ -298,21 +274,13 @@ Value sendtoaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 4)
         throw runtime_error(
-<<<<<<< HEAD
-            "sendtoaddress <roseonlycoinaddress> <amount> [comment] [comment-to]\n"
-=======
-            "sendtoaddress <hirocoinaddress> <amount> [comment] [comment-to]\n"
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            "sendtoaddress <RoseonlyCoinaddress> <amount> [comment] [comment-to]\n"
             "<amount> is a real and is rounded to the nearest 0.00000001"
             + HelpRequiringPassphrase());
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-<<<<<<< HEAD
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid RoseOnlycoin address");
-=======
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Hirocoin address");
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid RoseonlyCoin address");
 
     // Amount
     int64 nAmount = AmountFromValue(params[1]);
@@ -369,11 +337,7 @@ Value signmessage(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-<<<<<<< HEAD
-            "signmessage <roseonlycoinaddress> <message>\n"
-=======
-            "signmessage <hirocoinaddress> <message>\n"
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            "signmessage <RoseonlyCoinaddress> <message>\n"
             "Sign a message with the private key of an address");
 
     EnsureWalletIsUnlocked();
@@ -408,11 +372,7 @@ Value verifymessage(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 3)
         throw runtime_error(
-<<<<<<< HEAD
-            "verifymessage <roseonlycoinaddress> <signature> <message>\n"
-=======
-            "verifymessage <hirocoinaddress> <signature> <message>\n"
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            "verifymessage <RoseonlyCoinaddress> <signature> <message>\n"
             "Verify a signed message");
 
     string strAddress  = params[0].get_str();
@@ -449,23 +409,14 @@ Value getreceivedbyaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-<<<<<<< HEAD
-            "getreceivedbyaddress <roseonlycoinaddress> [minconf=1]\n"
-            "Returns the total amount received by <roseonlycoinaddress> in transactions with at least [minconf] confirmations.");
-=======
-            "getreceivedbyaddress <hirocoinaddress> [minconf=1]\n"
-            "Returns the total amount received by <hirocoinaddress> in transactions with at least [minconf] confirmations.");
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            "getreceivedbyaddress <RoseonlyCoinaddress> [minconf=1]\n"
+            "Returns the total amount received by <RoseonlyCoinaddress> in transactions with at least [minconf] confirmations.");
 
     // Bitcoin address
     CBitcoinAddress address = CBitcoinAddress(params[0].get_str());
     CScript scriptPubKey;
     if (!address.IsValid())
-<<<<<<< HEAD
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid RoseOnlycoin address");
-=======
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Hirocoin address");
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid RoseonlyCoin address");
     scriptPubKey.SetDestination(address.Get());
     if (!IsMine(*pwalletMain,scriptPubKey))
         return (double)0.0;
@@ -679,22 +630,14 @@ Value sendfrom(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 3 || params.size() > 6)
         throw runtime_error(
-<<<<<<< HEAD
-            "sendfrom <fromaccount> <toroseonlycoinaddress> <amount> [minconf=1] [comment] [comment-to]\n"
-=======
-            "sendfrom <fromaccount> <tohirocoinaddress> <amount> [minconf=1] [comment] [comment-to]\n"
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            "sendfrom <fromaccount> <toRoseonlyCoinaddress> <amount> [minconf=1] [comment] [comment-to]\n"
             "<amount> is a real and is rounded to the nearest 0.00000001"
             + HelpRequiringPassphrase());
 
     string strAccount = AccountFromValue(params[0]);
     CBitcoinAddress address(params[1].get_str());
     if (!address.IsValid())
-<<<<<<< HEAD
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid RoseOnlycoin address");
-=======
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Hirocoin address");
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid RoseonlyCoin address");
     int64 nAmount = AmountFromValue(params[2]);
     int nMinDepth = 1;
     if (params.size() > 3)
@@ -750,11 +693,7 @@ Value sendmany(const Array& params, bool fHelp)
     {
         CBitcoinAddress address(s.name_);
         if (!address.IsValid())
-<<<<<<< HEAD
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid RoseOnlycoin address: ")+s.name_);
-=======
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Hirocoin address: ")+s.name_);
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid RoseonlyCoin address: ")+s.name_);
 
         if (setAddress.count(address))
             throw JSONRPCError(RPC_INVALID_PARAMETER, string("Invalid parameter, duplicated address: ")+s.name_);
@@ -809,11 +748,7 @@ static CScript _createmultisig(const Array& params)
     {
         const std::string& ks = keys[i].get_str();
 
-<<<<<<< HEAD
-        // Case 1: RoseOnlycoin address and we have full public key:
-=======
-        // Case 1: Hirocoin address and we have full public key:
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+        // Case 1: RoseonlyCoin address and we have full public key:
         CBitcoinAddress address(ks);
         if (pwalletMain && address.IsValid())
         {
@@ -854,11 +789,7 @@ Value addmultisigaddress(const Array& params, bool fHelp)
     {
         string msg = "addmultisigaddress <nrequired> <'[\"key\",\"key\"]'> [account]\n"
             "Add a nrequired-to-sign multisignature address to the wallet\"\n"
-<<<<<<< HEAD
-            "each key is a RoseOnlycoin address or hex-encoded public key\n"
-=======
-            "each key is a Hirocoin address or hex-encoded public key\n"
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            "each key is a RoseonlyCoin address or hex-encoded public key\n"
             "If [account] is specified, assign address to [account].";
         throw runtime_error(msg);
     }
@@ -883,11 +814,7 @@ Value createmultisig(const Array& params, bool fHelp)
         string msg = "createmultisig <nrequired> <'[\"key\",\"key\"]'>\n"
             "Creates a multi-signature address and returns a json object\n"
             "with keys:\n"
-<<<<<<< HEAD
-            "address : roseonlycoin address\n"
-=======
-            "address : hirocoin address\n"
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            "address : RoseonlyCoin address\n"
             "redeemScript : hex-encoded redemption script";
         throw runtime_error(msg);
     }
@@ -1542,11 +1469,7 @@ Value encryptwallet(const Array& params, bool fHelp)
     // slack space in .dat files; that is bad if the old data is
     // unencrypted private keys. So:
     StartShutdown();
-<<<<<<< HEAD
-    return "wallet encrypted; RoseOnlycoin server stopping, restart to run with encrypted wallet. The keypool has been flushed, you need to make a new backup.";
-=======
-    return "wallet encrypted; Hirocoin server stopping, restart to run with encrypted wallet. The keypool has been flushed, you need to make a new backup.";
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+    return "wallet encrypted; RoseonlyCoin server stopping, restart to run with encrypted wallet. The keypool has been flushed, you need to make a new backup.";
 }
 
 class DescribeAddressVisitor : public boost::static_visitor<Object>
@@ -1588,13 +1511,8 @@ Value validateaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-<<<<<<< HEAD
-            "validateaddress <roseonlycoinaddress>\n"
-            "Return information about <roseonlycoinaddress>.");
-=======
-            "validateaddress <hirocoinaddress>\n"
-            "Return information about <hirocoinaddress>.");
->>>>>>> 4e4ef7e73515f26174f9ca9d15fdcb46b1890589
+            "validateaddress <RoseonlyCoinaddress>\n"
+            "Return information about <RoseonlyCoinaddress>.");
 
     CBitcoinAddress address(params[0].get_str());
     bool isValid = address.IsValid();
